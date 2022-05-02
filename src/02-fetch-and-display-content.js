@@ -1,10 +1,16 @@
 "use strict";
 
-fetch('https://api.spacexdata.com/v4/launches')
+//fetch('https://api.spacexdata.com/v4/launches')
+fetch("https://swapi.dev/api/films")
   .then((response) => response.json())
-  .then((data) => {
+  .then((data) => data.results.forEach((movie) =>{
+    document.body.innerHTML += `<h1> ${movie.title} </h1> ${movie.title}
+    <p> ${movie.opening_crawl}</p>
+    <br>`
 
-  data.forEach((launchObj) => {
+  }))
+
+ /* data.forEach((launchObj) => {
     const patchImage = launchObj.links.patch.small;
     const imgElement = document.createElement("img");
 
@@ -13,4 +19,5 @@ fetch('https://api.spacexdata.com/v4/launches')
     document.body.appendChild(imgElement);
   });
 
-}).catch((err) => console.log(err));
+})*/
+.catch((err) => console.log(err));
